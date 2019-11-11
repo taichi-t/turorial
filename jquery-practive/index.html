@@ -6,10 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Document</title>
+    <style>
+        .myStyle{
+            border: 5px solid green;
+            font-size: 48px;
+        }
+    </style>
 </head>
 <body>
     <p>jQuerypractice</p>
-    <ul id="main">
+    <ul>
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    <!-- <input type="text" value="hello"> -->
+    <!-- <ul id="main">
         <li>0</li>
         <li class="item">1</li>
         <li class="item">2</li>
@@ -22,7 +34,13 @@
                 <li>3-4</li>
             </ul>
         </li>
-    </ul>
+    </ul> -->
+
+    <!-- <p><a href="http://google.com">Google</a></p>
+    <p><a href="http://yahoo.jp">Yahoo!</a></p>
+    <p><a href="http://dotinstall.com">Dotinstall</a></p> -->
+
+    <a href="http://google.com" data-sitename="google">Google</a>
 <script
   src="https://code.jquery.com/jquery-3.4.1.slim.js"
   integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
@@ -57,8 +75,98 @@
         //+　隣接する要素
         // $("#main  .item").css('color','red'); 
         // $("p, .item").css('color','red'); multiple select
-        $(".item + .item").css('color', 'red');
+        // $(".item + .item").css('color', 'red');
     });
+
+    $(function(){
+        //selector
+        //filter
+        //:eq()
+        //:gt(), :it()
+        //:even, ;odd()
+        //:containts()
+        //:first. :last
+        // $("#sub > li:eq(2) ").css('color', 'red');
+        // $("#sub > li:gt(1) ").css('color', 'red');
+        // $("#sub > li:odd").css('color', 'red');
+        // $("#sub > li:contains('4')").css('color', 'red');
+
+    });
+    $(function(){
+        //selector.method
+        //selecting DOM elements using method
+        //parent(), children()
+        //next(),prev()
+        //siblings() -brother elements
+
+        // $("#sub").parent().css('color', 'red');
+        // $("#sub").children().css('color', 'red');
+        // $("#sub > li:eq(2)").next().css('color', 'red');
+        // $("#sub > li:eq(2)").prev().css('color', 'red');
+        // $("#sub > li:eq(2)").siblings().css('color', 'red');
+    });
+
+    $(function(){
+       //selector. method
+       //attribut selector
+       //= equal
+       //!= is not equal
+       //*= somthing contains in something you selected
+       //^=
+       //$=
+    //    $('a[href="http://google.com"]').css('background','red');
+    //    $('a[href!="http://google.com"]').css('background','red');
+    //    $('a[href*="dotinstall"]').css('background','red');
+    //    $('a[href$="jp"]').css('background','red');
+    });
+
+    $(function(){
+        //selector.method
+        //.css setup getting
+        // $('p').css('color','red').css('background','blue');
+        // console.log($('p').css('color'));
+
+        //addClass removeClass
+        // $('p').addClass('myStyle');
+    });
+
+    $(function(){
+
+        //attribute
+        // console.log($('a').attr('href'));
+        // $('a').attr('href','http://google.co.jp');
+        //data
+        // console.log($('a').data('sitename'));
+    });
+
+    $(function(){
+        //text
+        //html
+        //val
+        //remove,empty
+        // $('p').text('just changed')
+        // $('p').html('<a href="">click me!</a>');
+        //console.log($('input').val());
+        //$('input').val('hello, again!');
+        // $('p').empty();
+        // $('p').remove();
+    });
+
+    $(function(){
+        //before, after -> insertBefore, insertAfter
+        //prepend, append -> prependTo, appendTo
+        var li = $('<li>').text('just added');
+            // $('ul > li:eq(1)').before(li);
+            // li.insertBefore($('ul > li:eq(1)')); ↑both of same result.
+            // $('ul').prepend(li);
+            li.appendTo($('ul'));
+            // $('ul').append(li);
+
+    });
+
+
+
+
 
 
 
