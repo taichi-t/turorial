@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React practice</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- the below is essential sorce of react -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- the below is for the result of ract show up in DOM -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <!-- the below is for using bran new way of coding with javascript -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    (()=>{
+
+        // function Counter(){
+        //     return <div>0</div>;
+        // }
+
+        function Counter(props){
+            // return <div>0 {props.color}</div>
+            return <li style={{backgroundColor:props.color}}>0</li>;
+        }
+        // function Counter(props){
+        //     props.color = "red"
+        //     return <div>0 {props.color}</div>
+        // }
+
+        ReactDOM.render(
+            <div className = "container">
+                <ul>
+                <Counter color="tomato"/>
+                <Counter color="skyblue"/>
+                <Counter color="limegreen"/>
+                <Counter color="yellow"/>
+                </ul>
+            </div>,
+            document.getElementById('root')
+
+        );
+    })();
+    </script>
+
+
+</body>
+</html>

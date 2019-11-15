@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React practice</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- the below is essential sorce of react -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- the below is for the result of ract show up in DOM -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <!-- the below is for using bran new way of coding with javascript -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    (()=>{
+        const name = 'taguchi'
+        ReactDOM.render(
+            // <p>Hello! {name.toUpperCase()}</p>,
+            // <p>Hello</p><p>World</p>,
+            // <div>
+            //     <p>Hello</p>
+            //     <hr/>
+            //     <p>World</p>
+            // </div>,
+            // document.getElementById('root')
+        );
+    })();
+    </script>
+    <!-- if coding with local, separating the file would be an error, so coding here. -->
+
+</body>
+</html>
