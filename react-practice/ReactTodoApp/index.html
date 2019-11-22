@@ -16,11 +16,7 @@
     <div id="root"></div>
     <script type="text/babel">
     (()=>{
-        const todos = [
-            {id: 0, title: 'Task 0', isDone: false},
-            {id: 1, title: 'Task 1', isDone: false},
-            {id: 2, title: 'Task 2', isDone: true}
-        ];
+        const todos = [];
 
         function TodoItem(props){
             return(
@@ -59,11 +55,15 @@
 
         function TodoForm(props){
             return(
-                <form>
+                <form　onSubmit={props.addTodo}>
                 <input type="text" value={props.item} onChange={props.updateItem}/>
                 <input type="submit" value="Add"/>
                 </form>
             );
+        }
+
+        function getUniqueId(){
+            return new Date().getTime().toString(36) + '-' + Math.random().toString(36);
         }
 
         class App extends React.Component {
@@ -76,7 +76,31 @@
                 this.checkTodo =this.checkTodo.bind(this);
                 this.deleteTodo =this.deleteTodo.bind(this);
                 this.updateItem =this.updateItem.bind(this);
+                this.addTodo =this.addTodo.bind(this);
             }
+
+            addTodo(e){
+                e.preventDefault();
+
+                if(this.state.item.trim() === ''){
+                    return;
+                }
+
+                const item ={
+                    id: getUniqueId(),
+                    title: this.state.item,
+                    isDone: false
+                };
+
+                const todos = this.state.todos.slice();
+                todos.push(item);
+                this.setState({
+                    todos : todos,
+                    item :　''
+                })
+            }
+
+            
 
             deleteTodo(todo){
 
@@ -116,7 +140,9 @@
             render(){
                 return (
                     <div className="container">
-                    <h1>My Todos</h1>
+                    <TodoHeader
+                        todo={this.state.todos}
+                    />
                     <TodoList todos= {this.state.todos}
                     checkTodo={this.checkTodo}
                     deleteTodo={this.deleteTodo}
@@ -124,6 +150,7 @@
                      <TodoForm
                      item ={this.state.item}
                      updateItem={this.updateItem}
+                     addTodo={this.addTodo}
                      />
                     </div>
                 );
